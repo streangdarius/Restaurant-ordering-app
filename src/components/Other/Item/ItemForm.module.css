@@ -1,0 +1,56 @@
+.form {
+  text-align: right;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--orange-color);
+  border-radius: 0.5rem;
+}
+
+.form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  font: inherit;
+  cursor: pointer;
+  background-color: var(--white-color);
+  border: none;
+  color: var(--white-color);
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  margin-right: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon {
+  background-color: var(--orange-color);
+  border-radius: 10rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon:hover {
+  background-color: var(--black-color);
+  animation: increase 200ms ease-out;
+}
+
+.form button:hover,
+.form button:active {
+  color: var(--white-color);
+}
+
+@keyframes increase {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  30% {
+    transform: scale(1.15);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+}

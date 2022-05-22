@@ -1,0 +1,29 @@
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0 0.25rem 0.25rem;
+}
+
+.input label {
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 2rem;
+  margin-left: 0.25rem;
+  color: var(--black-color);
+  background-color: var(--white-color);
+  height: 2.5rem;
+  width: 1.75rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.input input {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  font: inherit;
+  font-size: 1rem;
+  padding-left: 0.5rem;
+}

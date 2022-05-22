@@ -1,0 +1,24 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--light-grey-color);
+}
+
+.item h3 {
+  font-size: 1rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.description {
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.price {
+  margin-top: 0.25rem;
+  font-weight: bold;
+  color: var(--orange-color);
+  font-size: 1.25rem;
+}
