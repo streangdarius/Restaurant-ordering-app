@@ -1,54 +1,64 @@
+import { useEffect, useState } from "react";
 import classes from "./AvailableRecipes.module.css";
 import Card from "../Interface/Card";
 import Item from "./Item/Item";
-
-const PASTA_RECIPES = [
-  {
-    id: "p1",
-    name: "Spaghetti Carbonara",
-    description:
-      "Freshly made spaghetti pasta, with eggs, hard cheese (Pecorino Romano and Parmesan), cured pork (Guanciale) and black pepper.",
-    price: 22.99,
-  },
-  {
-    id: "p2",
-    name: "Shrimp Fettucine Alfredo",
-    description:
-      "Freshly made fettuccini pasta, with butter, shrimps, garlic, hard cheese (Parmesan) and fresh parsley",
-    price: 26.5,
-  },
-  {
-    id: "p3",
-    name: "Bucatin all'Amatriciana",
-    description:
-      "Freshly made bucatini pasta, with cured pork (Pancetta), onion, garlic, crushed tomatoes and grated hard cheese (Pecorino Romano).",
-    price: 19.99,
-  },
-  {
-    id: "p4",
-    name: "Penne Alla Vodka",
-    description:
-      "Freshly made penne pasta, with crushed tomatoes, vodka, heavy cream and grated hard cheese (Parmesan).",
-    price: 19.99,
-  },
-  {
-    id: "p5",
-    name: "Farfalle Pomodoro",
-    description:
-      "Freshly made farfalle pasta, with onion, garlic, crushed tomatoes and grated hard cheese (Parmesan).",
-    price: 15.99,
-  },
-  {
-    id: "p6",
-    name: "Beef Fettuccine Ragu",
-    description:
-      "Freshly made spaghetti pasta, with beef meat, crushed tomatoes, onion, garlic, fennel seeds, thyme and grated hard cheese (Parmesan).",
-    price: 25.99,
-  },
-];
+import loading from "../../assets/loading.svg";
 
 const AvailableRecipes = () => {
-  const recipeList = PASTA_RECIPES.map((recipe) => {
+  const [recipes, setRecipes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState();
+
+  useEffect(() => {
+    setIsLoading(true);
+    const fetchRecipes = async () => {
+      const response = await fetch(
+        "https://yam-91ab0-default-rtdb.europe-west1.firebasedatabase.app/recipes.json"
+      );
+
+      if (!response.ok) {
+        throw new Error("There was an error while fetching data from server!");
+      }
+
+      const responseData = await response.json();
+
+      const loadedRecipes = [];
+
+      for (const key in responseData) {
+        loadedRecipes.push({
+          id: key,
+          name: responseData[key].name,
+          description: responseData[key].description,
+          price: responseData[key].price,
+        });
+      }
+      setRecipes(loadedRecipes);
+      setIsLoading(false);
+    };
+
+    fetchRecipes().catch((error) => {
+      setIsLoading(false);
+      setErrorMessage(error.message);
+    });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section className={classes.notification}>
+        <img src={loading} alt="Loading animation" />
+      </section>
+    );
+  }
+
+  if (errorMessage) {
+    return (
+      <section className={classes.notification}>
+        <p className={classes.status}>{errorMessage}</p>
+      </section>
+    );
+  }
+
+  const recipeList = recipes.map((recipe) => {
     return (
       <Item
         key={recipe.id}
