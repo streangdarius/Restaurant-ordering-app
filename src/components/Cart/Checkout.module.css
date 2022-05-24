@@ -1,0 +1,78 @@
+:root {
+  --yellow-color: #ffc529;
+  --orange-color: #fe724c;
+  --black-color: #272d2f;
+  --light-grey-color: #d7d7d7;
+  --white-color: #ffffff;
+  --red-color: #ca3e51;
+}
+
+.form {
+  margin: 1rem 0;
+  height: 19rem;
+  overflow: auto;
+}
+
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.control input {
+  font: inherit;
+  border: 1px solid var(--orange-color);
+  border-radius: 4px;
+  height: 2rem;
+  width: 100%;
+  font-size: 0.75rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.actions button {
+  font: inherit;
+  font-weight: 600;
+  color: var(--black-color);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.5rem 2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: var(--light-grey-color);
+}
+
+.actions .submit {
+  border: 1px solid var(--orange-color);
+  background-color: var(--orange-color);
+  color: var(--white-color);
+}
+
+.actions .submit:hover,
+.actions .submit:active {
+  border: 1px solid var(--orange-color);
+  color: var(--orange-color);
+  background-color: var(--white-color);
+}
+
+.invalid label {
+  color: var(--red-color);
+}
+
+.invalid input {
+  border-color: var(--red-color);
+  background-color: var(--white-color);
+}
