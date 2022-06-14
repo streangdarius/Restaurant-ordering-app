@@ -8,7 +8,6 @@ const Footer = (props) => {
     <Fragment>
       <footer className={classes.footer}>
         <p>© {currentYear}. Website created by Darius Streang.</p>
-        <button>Administrator</button>
       </footer>
     </Fragment>
   );
