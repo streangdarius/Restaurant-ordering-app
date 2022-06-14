@@ -1,13 +1,12 @@
 import { Fragment, useState } from "react";
 import classes from "./Header.module.css";
-import headerImage from "../../assets/header_image.jpg";
 import CartButton from "./CartButton";
 
 const Header = (props) => {
   const [navbar, setNavbar] = useState(false);
 
   const changeNavbarBackground = () => {
-    if (window.scrollY >= 110) {
+    if (window.scrollY >= 200) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -27,21 +26,20 @@ const Header = (props) => {
           Yam!<span className={classes["title-trademark"]}>&trade;</span>
         </h1>
         <div className={classes.container}>
-          <a className={classes["link-active"]} href="#">
-            home
+          <a href="/about" onClick={() => window.location.replace("/#about")}>
+            about
           </a>
-          <a className={classes.link} href="#">
+
+          <a
+            href="/recipes"
+            onClick={() => window.location.replace("/#recipes")}
+          >
             menu
           </a>
-          <a className={classes.link} href="#">
-            blog
-          </a>
+
           <CartButton onClick={props.onShowCart}></CartButton>
         </div>
       </header>
-      <div className={classes["main-image"]}>
-        <img src={headerImage} alt="Delicious food!" />
-      </div>
     </Fragment>
   );
 };

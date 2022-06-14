@@ -1,0 +1,17 @@
+:root {
+  --yellow-color: #ffc529;
+  --orange-color: #fe724c;
+  --black-color: #272d2f;
+  --light-grey-color: #d7d7d7;
+  --white-color: #fbfbfb;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  background-color: var(--orange-color);
+}

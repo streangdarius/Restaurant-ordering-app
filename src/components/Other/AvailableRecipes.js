@@ -71,6 +71,8 @@ const AvailableRecipes = () => {
   });
   return (
     <section className={classes.recipes}>
+      <h1 id="recipes">menu</h1>
+      <p>Enjoy the best pasta you will ever eat.</p>
       <Card>
         <ul>{recipeList}</ul>
       </Card>

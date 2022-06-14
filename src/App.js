@@ -3,6 +3,8 @@ import Header from "./components/Layout/Header";
 import Recipes from "./components/Other/Recipes";
 import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
+import Home from "./components/Other/Pages/Home";
+import Footer from "./components/Layout/Footer";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -20,7 +22,9 @@ function App() {
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <main>
+        <Home />
         <Recipes />
+        <Footer />
       </main>
     </CartProvider>
   );

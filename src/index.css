@@ -9,7 +9,7 @@
   --orange-color: #fe724c;
   --black-color: #272d2f;
   --light-grey-color: #d7d7d7;
-  --white-color: #ffffff;
+  --white-color: #fbfbfb;
 }
 
 html {
@@ -18,7 +18,7 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--black-color);
+  background-color: var(--white-color);
   color: var(--black-color);
   font-size: 62.5%;
 }
