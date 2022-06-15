@@ -26,12 +26,12 @@ const Header = (props) => {
           Yam!<span className={classes["title-trademark"]}>&trade;</span>
         </h1>
         <div className={classes.container}>
-          <a href="/about" onClick={() => window.location.replace("/#about")}>
+          <a onClick={() => window.location.replace("/#about")}>
             about
           </a>
 
           <a
-            href="/recipes"
+            
             onClick={() => window.location.replace("/#recipes")}
           >
             menu
